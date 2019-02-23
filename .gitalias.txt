@@ -1,9 +1,11 @@
 [alias]
-  co = checkout
+
   c = commit
-  s = status
-  br = branch
   d = diff
+  s = status
+
+  br = branch
+  co = checkout
   ds = diff --staged
   su = status -u
 
