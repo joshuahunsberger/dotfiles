@@ -1,0 +1,16 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+[include]
+	path = ~/.gitalias
+[core]
+	attributesfile = ~/.gitattributes
+	autocrlf = input
+	pager = less -eFiJM~ -j3 --tabs=3
+[init]
+	defaultBranch = main
