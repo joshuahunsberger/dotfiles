@@ -1,0 +1,169 @@
+[alias]
+
+  a = add
+  b = branch
+  c = commit
+  d = diff
+  f = fetch
+  s = status
+
+  aa = add --all
+  ap = add --patch
+  ca = commit --amend
+  cm = commit --message
+  co = checkout
+  ds = diff --staged
+  pf = pull --ff-only
+  su = status -u
+
+  # Get the current branch name (not so useful in itself, but used in
+  # other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+  # Push the current branch to the remote "origin", and set it to track
+  # the upstream branch
+  publish = "!git push -u origin $(git branch-name)"
+  # Delete the remote version of the current branch
+  unpublish = "!git push origin :$(git branch-name)"
+
+  ### log ###
+
+  # log with a text-based graphical representation of the commit history.
+  lg = log --graph
+
+  # log with one line per item.
+  lo = log --oneline
+
+  # log with patch generation.
+  lp = log --patch
+
+  # log with first parent, useful for team branch that only accepts pull requests
+  lfp = log --first-parent
+
+  # log with items appearing in topological order, i.e. descendant commits are shown before their parents.
+  lt = log --topo-order
+
+  # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
+  ll = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'
+
+  ### rebase ###
+
+  # rebase - forward-port local commits to the updated upstream head.
+  rb = rebase
+
+  # rebase abort - cancel the rebasing process
+  rba = rebase --abort
+
+  # rebase - continue the rebasing process after resolving a conflict manually and updating the index with the resolution.
+  rbc = rebase --continue
+
+  # rebase - restart the rebasing process by skipping the current patch.
+  rbs = rebase --skip
+
+  # rbi - rebase interactive on our unpushed commits.
+  #
+  # Before we push our local changes, we may want to do some cleanup,
+  # to improve our commit messages or squash related commits together.
+  #
+  # Let's say I've pushed two commits that are related to a new feature and
+  # I have another where I made a spelling mistake in the commit message.
+  # When I run "git rbi" I get dropped into my editor with this:
+  #
+  #     pick 7f06d36 foo
+  #     pick ad544d0 goo
+  #     pick de3083a hoo
+  #
+  # Let's say I want to squash the "foo" and "goo" commits together,
+  # and also change "hoo" to say "whatever". To do these, I change "pick"
+  # to say "s" for squash; this tells git to squash the two together;
+  # I also edit "hoo" to rename it to "whatever". I make the file look like:
+  #
+  #     pick 7f06d36 foo
+  #     s ad544d0 goo
+  #     r de3083a whatever
+  #
+  # This gives me two new commit messages to edit, which I update.
+  # Now when I push the remote repo host receives two commits
+  #
+  #     3400455 - foo
+  #     5dae0a0 - whatever
+  #
+  rbi = rebase --interactive @{upstream}
+
+  # Show our defined alias list
+  aliases = "!git config --get-regexp '^alias\\.' | cut -c 7- | sed 's/ / = /'"
+
+  ### LOOKUP ALIASES ###
+
+  # whois: given a string for an author, try to figure out full name and email:
+  whois = "!sh -c 'git log --regexp-ignore-case -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+
+  # Given any git object, try to show it briefly
+  whatis = show --no-patch --pretty='tformat:%h (%s, %ad)' --date=short
+
+  # Show who contributed with summarized changes
+  who = shortlog --summary --
+
+  # Show who contributed, in descending order by number of commits
+  whorank = shortlog --summary --numbered --no-merges
+
+  ### WORKFLOW ALIASES ###
+
+  # Clone a git repository including all submodules
+  cloner = clone --recursive
+
+  # Stash aliases for push & pop
+  #
+  # Note that if you are using an older version of git, before 2.16.0,
+  # then you can use the older "stash save" instead of the newer "stash push".
+  save = stash push
+  pop = stash pop
+
+  # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+  # Take a snapshot of your current working tree without removing changes.
+  # This is handy for refactoring where you can't quite fit what you've done
+  # into a commit but daren't stray too far from now without a backup.
+  #
+  # Running this:
+  #
+  #    $ git snapshot
+  #
+  # Creates this stash:
+  #
+  #    stash@{0}: On feature/handy-git-tricks: snapshot: Mon Apr 8 12:39:06 BST 2013
+  #
+  # And seemingly no changes to your working tree.
+  #
+  snapshot = !git stash push "snapshot: $(date)" && git stash apply "stash@{0}"
+
+  # Ignore all untracked files by appending them to .gitignore:
+  ignore = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
+
+  # Reset and undo aliases are ways to move backwards on the commit chain.
+  # We find that novices prefer the wording "undo"; experts prefer "reset".
+  reset-commit       = reset --soft HEAD~1
+  reset-commit-hard  = reset --hard HEAD~1
+  reset-commit-clean = !git reset --hard HEAD~1 && git clean -fd
+  reset-to-pristine   = !git reset --hard && git clean -ffdx
+  reset-to-upstream = !git reset --hard $(git upstream-name)
+
+  # Nicknames
+  uncommit = reset --soft HEAD~1
+  unadd = reset HEAD
+  unstage = reset HEAD
+
+  # Discard changes in a (list of) file(s) in working tree
+  discard = checkout --
+
+    # Work In Progress: from https://gist.github.com/492227 and VonC on stackoverflow.
+  # This enables a quick way to add all new and modified files to the index,
+  # while cleaning the index from the files removed from the working tree;
+  # this cleaning will facilitate a rebase, because there won't be any conflict
+  # due to an "unclean" working directory (not in sync with the index).
+  # The unwip will restore the deleted files to the working tree.
+  wip = !"git add --all; git ls-files --deleted -z | xargs -0 git rm; git commit --message=wip"
+  unwip = !"git log -n 1 | grep -q -c wip && git reset HEAD~1"
+
+  fullstash = stash --include-untracked
+
+  # From https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
+  gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
