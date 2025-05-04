@@ -1,0 +1,14 @@
+packages:
+  darwin:
+    brews:
+    - 'azure-cli'
+    - 'colima'
+    - 'curl'
+    - 'docker'
+    - 'docker-compose'
+    - 'gh'
+    - 'git'
+    casks:
+    - '1password-cli'
+    - 'iterm2'
+    - 'visual-studio-code'
