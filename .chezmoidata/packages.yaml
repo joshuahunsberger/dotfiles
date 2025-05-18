@@ -11,4 +11,5 @@ packages:
     casks:
     - '1password-cli'
     - 'iterm2'
+    - 'parallels'
     - 'visual-studio-code'
