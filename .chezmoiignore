@@ -13,6 +13,8 @@ install.sh
 
 {{ if eq .chezmoi.os "windows" -}}
 .config/powershell/**
+.oh-my-zsh
+.oh-my-zsh/**
 .p10.zsh
 .zshrc
 {{ end }}
