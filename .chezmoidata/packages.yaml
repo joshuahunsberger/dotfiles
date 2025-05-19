@@ -15,4 +15,7 @@ packages:
     - 'visual-studio-code'
   windows:
     winget:
+    - 'JanDeDobbeleer.OhMyPosh'
     - 'Microsoft.AzureCLI'
+    - 'Microsoft.PowerShell'
+    - 'Microsoft.WindowsTerminal'
