@@ -1,7 +1,7 @@
 {{ if eq .chezmoi.os "windows" -}}
 
 {{ range .packages.windows.winget -}}
-winget install --name {{ . | quote }}
+winget install --id {{ . | quote }} --source winget
 {{ end -}}
 
 {{ end -}}
