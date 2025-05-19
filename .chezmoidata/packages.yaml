@@ -13,3 +13,6 @@ packages:
     - 'iterm2'
     - 'parallels'
     - 'visual-studio-code'
+  windows:
+    winget:
+    - 'Microsoft.AzureCLI'
