@@ -1,5 +1,4 @@
 {{- $codespaces:= env "CODESPACES" | not | not -}}
-sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 {{- $email := "" -}}
 {{- if hasKey . "email" -}}
@@ -18,6 +17,8 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 {{- else -}}
 {{-   $name = promptString "name" -}}
 {{- end -}}
+
+sourceDir = {{ .chezmoi.sourceDir | quote }}
 
 [data]
     email = {{ $email | quote }}
