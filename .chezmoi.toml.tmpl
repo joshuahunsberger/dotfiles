@@ -1,6 +1,11 @@
+{{- $codespaces:= env "CODESPACES" | not | not -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
 {{- $email := "" -}}
 {{- if hasKey . "email" -}}
 {{-   $email = .email -}}
+{{- else if $codespaces -}}
+{{-   $email = "15810377+joshuahunsberger@users.noreply.github.com" -}}
 {{- else -}}
 {{-   $email = promptString "email" -}}
 {{- end -}}
@@ -8,6 +13,8 @@
 {{- $name := "" -}}
 {{- if hasKey . "name" -}}
 {{-   $name = .name -}}
+{{- else if $codespaces -}}
+{{-   $name = "Joshua Hunsberger" -}}
 {{- else -}}
 {{-   $name = promptString "name" -}}
 {{- end -}}
@@ -15,6 +22,7 @@
 [data]
     email = {{ $email | quote }}
     name = {{ $name | quote }}
+    codespaces = {{ $codespaces }}
     zshPlugins = [
         "git",
         "zsh-syntax-highlighting",
