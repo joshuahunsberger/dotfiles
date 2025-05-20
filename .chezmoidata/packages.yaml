@@ -18,4 +18,5 @@ packages:
     - 'JanDeDobbeleer.OhMyPosh'
     - 'Microsoft.AzureCLI'
     - 'Microsoft.PowerShell'
+    - 'Microsoft.VisualStudioCode'
     - 'Microsoft.WindowsTerminal'
