@@ -15,6 +15,6 @@ install.sh
 .config/powershell/**
 .oh-my-zsh
 .oh-my-zsh/**
-.p10.zsh
+.p10k.zsh
 .zshrc
 {{ end }}
