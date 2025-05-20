@@ -12,5 +12,8 @@
 	attributesfile = ~/.gitattributes
 	autocrlf = input
 	pager = less -eFiJM~ -j3 --tabs=3
+{{ if eq .chezmoi.os "windows" -}}
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{ end }}
 [init]
 	defaultBranch = main
