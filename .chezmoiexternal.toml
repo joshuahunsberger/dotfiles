@@ -26,3 +26,9 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+
+{{ if eq .chezmoi.os "windows" }}
+["%LOCALAPPDATA%/Microsoft/Windows/Fonts"]
+    type = "archive"
+    url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip"
+{{ end }}
