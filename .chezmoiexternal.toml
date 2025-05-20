@@ -28,7 +28,7 @@
     stripComponents = 1
 
 {{ if eq .chezmoi.os "windows" }}
-["%LOCALAPPDATA%/Microsoft/Windows/Fonts"]
+["AppData/Local/Microsoft/Windows/Fonts"]
     type = "archive"
     url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip"
 {{ end }}
