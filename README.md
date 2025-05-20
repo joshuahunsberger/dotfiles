@@ -1,21 +1,39 @@
 # Joshua Hunsberger's dotfiles
 
-The repo contains configuration files that track the way I have configured various command line tools, such as git.
-
-.gitalias.txt example taken from https://github.com/GitAlias/gitalias
+The repo contains my dotfiles, managed with [`chezmoi`](https://github.com/twpayne/chezmoi). 
 
 ## Installation
 
-Clone this repo in your home directory, then run `./install.sh`.
+### Install `chezmoi`
 
+#### macOS
+
+```console
+brew install chezmoi
+```
+
+#### Windows
+```console
+winget install twpayne.chezmoi
+```
+
+#### Other options
+https://www.chezmoi.io/install/
+
+#### GitHub Codespaces
 As of October 2020, GitHub Codespaces automatically clones a dotfiles repo to the home directory when creating a new Codespace and runs the install.sh script.  
 
 See this link for more information:
 https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account
 
-## Git
+### Initialize
+```console
+chezmoi init --apply joshuahunsberger
+```
 
-### Aliases
+## Manual Setup Options
+
+### Git Aliases
 You can include the additional aliases in .gitalias.txt by adding the following to your .gitconfig :
 ```
 [include]
@@ -33,3 +51,7 @@ Alternative:
 ```
 git config --global core.attributesfile /path/to/dotfiles/.gitattributes
 ```
+
+## References
+
+.gitalias.txt example taken from https://github.com/GitAlias/gitalias
