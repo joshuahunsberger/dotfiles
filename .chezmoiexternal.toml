@@ -26,6 +26,18 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.15.0.tar.gz"
     exact = true
     stripComponents = 1
+[".oh-my-zsh/custom/plugins/zsh-nvm"]
+    type = "archive"
+    url = "https://api.github.com/repos/lukechilds/zsh-nvm/tarball"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    exclude = [
+        "*/.github",
+        "*/.gitignore",
+        "*/.travis.yml",
+        "*/tests",
+    ]
 
 {{ if eq .chezmoi.os "windows" }}
 ["AppData/Local/Microsoft/Windows/Fonts"]
