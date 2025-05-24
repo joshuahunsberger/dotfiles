@@ -14,6 +14,7 @@ install.sh
 {{ if ne .chezmoi.os "windows" }}
 AppData/**
 {{ else }}
+.chezmoidata/zshPlugins.yaml
 .config/powershell/**
 .oh-my-zsh
 .oh-my-zsh/**
