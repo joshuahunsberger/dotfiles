@@ -39,6 +39,15 @@
         "*/.travis.yml",
         "*/tests",
     ]
+[".oh-my-zsh/custom/plugins/zsh-better-npm-completion"]
+    type = "archive"
+    url = "https://api.github.com/repos/lukechilds/zsh-better-npm-completion/tarball"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    include = [
+        "zsh-better-npm-completion.plugin.zsh"
+    ]
 {{ end }}
 {{ if eq .chezmoi.os "windows" }}
 ["AppData/Local/Microsoft/Windows/Fonts"]
