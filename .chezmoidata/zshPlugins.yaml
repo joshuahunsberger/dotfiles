@@ -1,4 +1,5 @@
 zshPlugins:
+- chezmoi
 - git
 - zsh-better-npm-completion
 - zsh-nvm
