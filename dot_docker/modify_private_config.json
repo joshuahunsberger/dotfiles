@@ -1,0 +1,12 @@
+{{- /* chezmoi:modify-template */ -}}
+
+{{- $result := dict -}}
+{{- if not (empty .chezmoi.stdin) -}}
+{{-   $result = fromJson .chezmoi.stdin -}}
+{{- end -}}
+
+{{ if eq .chezmoi.os "darwin" }}
+{{ $result = setValueAtPath "cliPluginsExtraDirs" (list "$HOMEBREW_PREFIX/lib/docker/cli-plugins") $result }}
+{{ end }}
+
+{{- toPrettyJson $result -}}
