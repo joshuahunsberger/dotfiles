@@ -1,6 +1,7 @@
 zshPlugins:
 - chezmoi
 - docker
+- docker-compose
 - git
 - zsh-better-npm-completion
 - zsh-nvm
