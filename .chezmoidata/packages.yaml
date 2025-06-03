@@ -7,6 +7,7 @@ packages:
     - 'docker'
     - 'docker-buildx'
     - 'docker-compose'
+    - 'fzf'
     - 'gh'
     - 'git'
     - 'zoxide'
@@ -17,6 +18,7 @@ packages:
     - 'visual-studio-code'
   windows:
     winget:
+    - 'fzf'
     - 'JanDeDobbeleer.OhMyPosh'
     - 'Microsoft.AzureCLI'
     - 'Microsoft.PowerShell'
