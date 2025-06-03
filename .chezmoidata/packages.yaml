@@ -19,8 +19,8 @@ packages:
   windows:
     winget:
     - 'ajeetdsouza.zoxide'
-    - 'fzf'
     - 'JanDeDobbeleer.OhMyPosh'
+    - 'junegunn.fzf'
     - 'Microsoft.AzureCLI'
     - 'Microsoft.PowerShell'
     - 'Microsoft.VisualStudioCode'
