@@ -3,6 +3,7 @@ zshPlugins:
 - docker
 - docker-compose
 - git
+- zoxide
 - zsh-better-npm-completion
 - zsh-nvm
 - zsh-syntax-highlighting

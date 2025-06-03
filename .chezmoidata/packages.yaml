@@ -9,6 +9,7 @@ packages:
     - 'docker-compose'
     - 'gh'
     - 'git'
+    - 'zoxide'
     casks:
     - '1password-cli'
     - 'iterm2'
