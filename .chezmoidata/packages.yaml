@@ -18,6 +18,7 @@ packages:
     - 'visual-studio-code'
   windows:
     winget:
+    - 'ajeetdsouza.zoxide'
     - 'fzf'
     - 'JanDeDobbeleer.OhMyPosh'
     - 'Microsoft.AzureCLI'
