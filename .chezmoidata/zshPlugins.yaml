@@ -5,6 +5,7 @@ zshPlugins:
 - fzf
 - git
 - zoxide
+- zsh-autosuggestions
 - zsh-better-npm-completion
 - zsh-nvm
 - zsh-syntax-highlighting

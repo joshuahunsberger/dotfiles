@@ -48,6 +48,16 @@
     include = [
         "*/zsh-better-npm-completion.plugin.zsh"
     ]
+[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://api.github.com/repos/zsh-users/zsh-autosuggestions/tarball"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    include = [
+        "*/zsh-autosuggestions.plugin.zsh",
+        "*/zsh-autosuggestions.zsh"
+    ]
 {{ end }}
 {{ if eq .chezmoi.os "windows" }}
 ["AppData/Local/Microsoft/Windows/Fonts"]
