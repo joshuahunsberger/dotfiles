@@ -16,6 +16,17 @@ packages:
     - 'iterm2'
     - 'parallels'
     - 'visual-studio-code'
+  linux:
+    brews:
+    - 'azure-cli'
+    - 'curl'
+    - 'docker'
+    - 'docker-buildx'
+    - 'docker-compose'
+    - 'fzf'
+    - 'gh'
+    - 'git'
+    - 'zoxide'
   windows:
     winget:
     - 'ajeetdsouza.zoxide'
