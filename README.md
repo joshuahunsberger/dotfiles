@@ -2,12 +2,34 @@
 
 The repo contains my dotfiles, managed with [`chezmoi`](https://github.com/twpayne/chezmoi). 
 
+## Supported Platforms
+
+- **macOS**: Full support with Homebrew packages and GUI applications
+- **Ubuntu on WSL**: Full support with Homebrew packages (requires Homebrew pre-installed)
+- **Windows**: PowerShell configuration with winget packages
+- **GitHub Codespaces**: Auto-configures on launch
+
 ## Installation
+
+### Prerequisites
+
+#### Ubuntu on WSL
+Install Homebrew first:
+```console
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Follow the post-installation instructions to add Homebrew to your PATH.
 
 ### Install `chezmoi`
 
 #### macOS
 
+```console
+brew install chezmoi
+```
+
+#### Ubuntu on WSL
 ```console
 brew install chezmoi
 ```
@@ -21,7 +43,7 @@ winget install twpayne.chezmoi
 https://www.chezmoi.io/install/
 
 #### GitHub Codespaces
-Github automatically clones this repo into new Codepaces and runs `install.sh`.
+Github automatically clones this repo into new Codespaces and runs `install.sh`.
 
 ### Initialize
 ```console
