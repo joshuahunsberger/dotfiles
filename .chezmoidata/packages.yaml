@@ -2,6 +2,7 @@ packages:
   darwin:
     brews:
     - 'azure-cli'
+    - 'bat'
     - 'colima'
     - 'curl'
     - 'git-delta'
@@ -20,6 +21,7 @@ packages:
   linux:
     brews:
     - 'azure-cli'
+    - 'bat'
     - 'curl'
     - 'git-delta'
     - 'docker'
@@ -39,3 +41,4 @@ packages:
     - 'Microsoft.PowerShell'
     - 'Microsoft.VisualStudioCode'
     - 'Microsoft.WindowsTerminal'
+    - 'sharkdp.bat'
