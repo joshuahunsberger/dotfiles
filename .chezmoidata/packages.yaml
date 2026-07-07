@@ -4,6 +4,7 @@ packages:
     - 'azure-cli'
     - 'colima'
     - 'curl'
+    - 'git-delta'
     - 'docker'
     - 'docker-buildx'
     - 'docker-compose'
@@ -20,6 +21,7 @@ packages:
     brews:
     - 'azure-cli'
     - 'curl'
+    - 'git-delta'
     - 'docker'
     - 'docker-buildx'
     - 'docker-compose'
@@ -30,6 +32,7 @@ packages:
   windows:
     winget:
     - 'ajeetdsouza.zoxide'
+    - 'dandavison.delta'
     - 'JanDeDobbeleer.OhMyPosh'
     - 'junegunn.fzf'
     - 'Microsoft.AzureCLI'
