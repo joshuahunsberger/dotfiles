@@ -11,7 +11,7 @@
 [core]
 	attributesfile = ~/.gitattributes
 	autocrlf = input
-	pager = less -eFiJM~ -j3 --tabs=3
+	pager = delta
 {{ if eq .chezmoi.os "windows" -}}
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 {{ else if eq .chezmoi.os "linux" -}}
@@ -27,3 +27,11 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[interactive]
+	diffFilter = delta --color-only
+[merge]
+	conflictStyle = zdiff3
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
