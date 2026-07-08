@@ -1,8 +1,20 @@
 $ErrorActionPreference = 'Stop'
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
 try {
-    # Safely read stdin from pipeline without relying on Win32 Console handles
+    # Safely read stdin from pipeline
     $jsonInput = @($input) -join "`n"
+
+    # Strip leading Byte Order Mark (BOM) or non-JSON prefix up to the first '{'
+    if (-not [string]::IsNullOrWhiteSpace($jsonInput)) {
+        $firstBrace = $jsonInput.IndexOf('{')
+        if ($firstBrace -ge 0) {
+            $jsonInput = $jsonInput.Substring($firstBrace)
+        } else {
+            $jsonInput = ""
+        }
+    }
+
     if ([string]::IsNullOrWhiteSpace($jsonInput)) {
         $settings = [PSCustomObject]@{}
     } else {
