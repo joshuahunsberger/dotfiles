@@ -1,9 +1,20 @@
-oh-my-posh init pwsh --config "~/.ohmyposh/powerlevel10k_dracula.omp.json" | Invoke-Expression
+# Exit immediately if running in non-interactive mode or if standard output is redirected (e.g. Chezmoi scripts/pipes)
+if (-not [Environment]::UserInteractive -or [Console]::IsOutputRedirected) {
+    return
+}
+
+if (Get-Command oh-my-posh -ErrorAction SilentlyContinue) {
+    oh-my-posh init pwsh --config "~/.ohmyposh/powerlevel10k_dracula.omp.json" | Invoke-Expression
+}
 
 Set-Alias -Name g -Value git
 
 # https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#powershell
 # PowerShell parameter completion shim for the dotnet CLI
-dotnet completions script pwsh | Out-String | Invoke-Expression
+if (Get-Command dotnet -ErrorAction SilentlyContinue) {
+    dotnet completions script pwsh | Out-String | Invoke-Expression
+}
 
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+if (Get-Command zoxide -ErrorAction SilentlyContinue) {
+    Invoke-Expression (& { (zoxide init powershell | Out-String) })
+}
