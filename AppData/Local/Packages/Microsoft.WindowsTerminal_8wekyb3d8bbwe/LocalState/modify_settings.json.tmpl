@@ -1,8 +1,10 @@
 {{- /* chezmoi:modify-template */ -}}
 
 {{- $settings := dict -}}
-{{- if not (empty .chezmoi.stdin) -}}
-{{-   $settings = fromJson .chezmoi.stdin -}}
+{{- if hasKey .chezmoi "stdin" -}}
+{{-   if not (empty .chezmoi.stdin) -}}
+{{-     $settings = fromJson .chezmoi.stdin -}}
+{{-   end -}}
 {{- end -}}
 
 {{- /* 1. Ensure Dracula color scheme is present in schemes */ -}}
