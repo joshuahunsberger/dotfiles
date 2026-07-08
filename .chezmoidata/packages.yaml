@@ -38,6 +38,8 @@ packages:
     - 'JanDeDobbeleer.OhMyPosh'
     - 'junegunn.fzf'
     - 'Microsoft.AzureCLI'
+    - 'Microsoft.DotNet.SDK.10'
+    - 'Microsoft.DotNet.SDK.Preview'
     - 'Microsoft.PowerShell'
     - 'Microsoft.VisualStudioCode'
     - 'Microsoft.WindowsTerminal'
