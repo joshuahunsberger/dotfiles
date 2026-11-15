@@ -135,8 +135,6 @@ fi
 
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-# Added by Antigravity
-export PATH="/Users/joshua/.antigravity/antigravity/bin:$PATH"
 {{ if eq .chezmoi.os "darwin" }}
 export DOCKER_HOST=unix://$HOME/.colima/docker.sock
 {{ end }}
