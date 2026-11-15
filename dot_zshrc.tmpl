@@ -136,5 +136,5 @@ fi
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 {{ if eq .chezmoi.os "darwin" }}
-export DOCKER_HOST=unix://$HOME/.colima/default/docker.sock
+export DOCKER_HOST="unix://$HOME/.colima/default/docker.sock"
 {{ end }}
