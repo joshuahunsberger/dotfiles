@@ -31,6 +31,7 @@ packages:
     - 'gh'
     - 'git'
     - 'zoxide'
+    - 'zsh'
   windows:
     winget:
     - 'ajeetdsouza.zoxide'
