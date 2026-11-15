@@ -99,7 +99,9 @@ source $ZSH/oh-my-zsh.sh
 
 # zsh parameter completion for the dotnet CLI
 # https://learn.microsoft.com/en-us/dotnet/core/tools/enable-tab-autocomplete#zsh
-eval "$(dotnet completions script zsh)"
+if (( $+commands[dotnet] )); then
+  eval "$(dotnet completions script zsh)"
+fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
